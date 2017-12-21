@@ -73,8 +73,8 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate,WKScr
     }
 
     /* 页面加载失败时调用 */
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        print("页面加载失败")
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        print("网页加载失败")
     }
 
     /* 接收到服务器跳转请求之后调用 */

@@ -45,10 +45,25 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate,WKScr
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        // https://tianji.rong360.com/tianjiwapreport/login?data=nD%2BRaNTUBXKJrM1QPpIetIpWI2iU5DejAjUo%2FRXJHMv%2BW13DSPQahuoMWVB1WxLBSyAwG7bcxRVgUE003PjpCrXD5DFxfthePEMRS7jd%2F4Wc%2BkmOEondu1Ckyn9lG9hhYaBobcA%2BanEaWnih7OLhtRwm%2FNT8eXMhWwPlmNvix0SWHY%2F3%2FFwxqaA1qNtQCTt7iYprTYXRRvdSr5ToKleZwO1aFQYPTGhFqLXe2sW2fi6oKE%2FZKdVQ2ovlICIo7qUS
         
-        let myURL = URL(string: "https://tianji.rong360.com/tianjiwapreport/login?data=nD%2BRaNTUBXKJrM1QPpIetIpWI2iU5DejAjUo%2FRXJHMv%2BW13DSPQahuoMWVB1WxLBSyAwG7bcxRVgUE003PjpCrXD5DFxfthePEMRS7jd%2F4Wc%2BkmOEondu1Ckyn9lG9hhYaBobcA%2BanEaWnih7OLhtRwm%2FNT8eXMhWwPlmNvix0SWHY%2F3%2FFwxqaA1qNtQCTt7iYprTYXRRvdSr5ToKleZwO1aFQYPTGhFqLXe2sW2fi6oKE%2FZKdVQ2ovlICIo7qUS")
+        let myURL = URL(string: "http://ddj.zetafin.cn")
         let myRequest = URLRequest(url: myURL!)
+        
+        
+        weak var weakSelf = self
+        //MARK: 设置userAgent
+        webViewOne.evaluateJavaScript("navigator.userAgent", completionHandler: { (result,error) in
+            
+            var str = NSString()
+            str = result as! NSString
+            let newUserAgent = str.appending("doudoujin ios")
+            weakSelf?.webViewOne.customUserAgent = newUserAgent
+            
+        })
+        
+        
+        
+        
         webViewOne.load(myRequest)
         contentController.add(self, name: "callbackHandler")
         

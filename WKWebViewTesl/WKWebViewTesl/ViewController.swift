@@ -20,11 +20,48 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate,WKScr
     
     override func loadView() {
         
+        
+        
+        
+        
+        
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        // https://credit.baiqishi.com/clclient/common/getauthagreement?fromType=app
+        
+        configeWeb()
+        
+        let myURL = URL(string: "http://lhhq.lanxin99.net/mall-personal-center")
+        var myRequest = URLRequest(url: myURL!)
+        
+        
+        weak var weakSelf = self
+        //MARK: 设置userAgent
+        webViewOne.evaluateJavaScript("navigator.userAgent", completionHandler: { (result,error) in
+            
+            var str = NSString()
+            str = result as! NSString
+            let newUserAgent = str.appending("doudoujin ios")
+            weakSelf?.webViewOne.customUserAgent = newUserAgent
+            
+        })
+        
+        webViewOne.load(myRequest)
+        contentController.add(self, name: "callbackHandler")
+        
+    }
+    
+    
+    func configeWeb() {
         /* 动态加载并运行JS代码 */
         // JS代码片段 这里没什么用，最好只在页面加载后调用
-        let jsStr = ""
+        let jsStr = "document.cookie ='user_token={%22access_token%22:%22dc3411cf-af58-4222-af2d-8c430a4d8b8e%22%2C%22refresh_token%22:%22d798cb1a-2c80-4c26-bef2-77332728b912%22%2C%22openid%22:null%2C%22access_expires_in%22:1529396459959%2C%22refresh_expires_in%22:1531383659959}';"
         // 根据JS字符串初始化WKUserScript对象
-        let userScript = WKUserScript(source: jsStr, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+        let userScript = WKUserScript(source: jsStr, injectionTime: .atDocumentStart, forMainFrameOnly: true)
         let userContentController = WKUserContentController()
         userContentController.addUserScript(userScript)
         
@@ -40,33 +77,6 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate,WKScr
         webViewOne.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         
         self.view = webViewOne
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        let myURL = URL(string: "http://ddj.zetafin.cn")
-        let myRequest = URLRequest(url: myURL!)
-        
-        
-        weak var weakSelf = self
-        //MARK: 设置userAgent
-        webViewOne.evaluateJavaScript("navigator.userAgent", completionHandler: { (result,error) in
-            
-            var str = NSString()
-            str = result as! NSString
-            let newUserAgent = str.appending("doudoujin ios")
-            weakSelf?.webViewOne.customUserAgent = newUserAgent
-            
-        })
-        
-        
-        
-        
-        webViewOne.load(myRequest)
-        contentController.add(self, name: "callbackHandler")
-        
     }
     
     /**
@@ -181,7 +191,7 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate,WKScr
         
         if keyPath == "estimatedProgress" {
             if object as? WKWebView == webViewOne {
-                print("进度条 ****** \(webViewOne.estimatedProgress)")
+//                print("进度条 ****** \(webViewOne.estimatedProgress)")
             }
         }
         

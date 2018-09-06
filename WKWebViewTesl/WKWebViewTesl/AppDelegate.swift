@@ -16,7 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setupProxy()
         return true
+    }
+    
+    // 进行域名拦截
+    func setupProxy() {
+        
+        let queue: OperationQueue = OperationQueue()
+        queue.maxConcurrentOperationCount = 5
+        
+        
+        WebViewProxy.handleRequests(matching: NSPredicate.for, handler: <#T##WVPHandler!##WVPHandler!##(URLRequest?, WVPResponse?) -> Void#>)
+        
+        WebViewProxy.handleRequests(withHost: "example.proxy") { (req, res) in
+            
+            print("过滤的\(res?.respond(withText: "hehe"))")
+            
+            NSURLConnection.sendAsynchronousRequest(URLRequest.init(url: (req?.url)!), queue: queue, completionHandler: { (netRes, data, netErr) in
+                //                let netErr: Error = Error.error
+                return res?.pipeError(netErr)
+            })
+            
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

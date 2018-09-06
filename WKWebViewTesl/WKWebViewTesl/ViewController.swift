@@ -39,6 +39,7 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate,WKScr
         var myRequest = URLRequest(url: myURL!)
         
         
+        
         weak var weakSelf = self
         //MARK: 设置userAgent
         webViewOne.evaluateJavaScript("navigator.userAgent", completionHandler: { (result,error) in
@@ -53,7 +54,11 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate,WKScr
         webViewOne.load(myRequest)
         contentController.add(self, name: "callbackHandler")
         
+        
+        
     }
+    
+    
     
     
     func configeWeb() {

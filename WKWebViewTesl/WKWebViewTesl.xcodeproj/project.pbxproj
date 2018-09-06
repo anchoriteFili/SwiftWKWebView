@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6190BB92134ED0B00A196D8 /* WebViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6190BB82134ED0B00A196D8 /* WebViewProxy.m */; };
 		D6E5872E1FE7539B0060DC91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E5872D1FE7539B0060DC91 /* AppDelegate.swift */; };
 		D6E587301FE7539B0060DC91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E5872F1FE7539B0060DC91 /* ViewController.swift */; };
 		D6E587331FE7539B0060DC91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6E587311FE7539B0060DC91 /* Main.storyboard */; };
@@ -36,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D6190BB22134ECED00A196D8 /* WKWebViewTesl-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebViewTesl-Bridging-Header.h"; sourceTree = "<group>"; };
+		D6190BB72134ED0B00A196D8 /* WebViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewProxy.h; sourceTree = "<group>"; };
+		D6190BB82134ED0B00A196D8 /* WebViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewProxy.m; sourceTree = "<group>"; };
 		D6E5872A1FE7539B0060DC91 /* WKWebViewTesl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKWebViewTesl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6E5872D1FE7539B0060DC91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6E5872F1FE7539B0060DC91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D6190BB62134ED0B00A196D8 /* WebViewProxy */ = {
+			isa = PBXGroup;
+			children = (
+				D6190BB72134ED0B00A196D8 /* WebViewProxy.h */,
+				D6190BB82134ED0B00A196D8 /* WebViewProxy.m */,
+			);
+			path = WebViewProxy;
+			sourceTree = "<group>";
+		};
 		D6E587211FE7539B0060DC91 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +116,7 @@
 		D6E5872C1FE7539B0060DC91 /* WKWebViewTesl */ = {
 			isa = PBXGroup;
 			children = (
+				D6190BB62134ED0B00A196D8 /* WebViewProxy */,
 				D6E5875E1FE8DF9E0060DC91 /* README.md */,
 				D6E5872D1FE7539B0060DC91 /* AppDelegate.swift */,
 				D6E5872F1FE7539B0060DC91 /* ViewController.swift */,
@@ -110,6 +124,7 @@
 				D6E587341FE7539B0060DC91 /* Assets.xcassets */,
 				D6E587361FE7539B0060DC91 /* LaunchScreen.storyboard */,
 				D6E587391FE7539B0060DC91 /* Info.plist */,
+				D6190BB22134ECED00A196D8 /* WKWebViewTesl-Bridging-Header.h */,
 			);
 			path = WKWebViewTesl;
 			sourceTree = "<group>";
@@ -208,6 +223,7 @@
 				TargetAttributes = {
 					D6E587291FE7539B0060DC91 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 					D6E5873D1FE7539B0060DC91 = {
@@ -277,6 +293,7 @@
 			files = (
 				D6E587301FE7539B0060DC91 /* ViewController.swift in Sources */,
 				D6E5872E1FE7539B0060DC91 /* AppDelegate.swift in Sources */,
+				D6190BB92134ED0B00A196D8 /* WebViewProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +459,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JJR2ZF8DZN;
 				INFOPLIST_FILE = WKWebViewTesl/Info.plist;
@@ -449,6 +467,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhaohongya.WKWebViewTesl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WKWebViewTesl/WKWebViewTesl-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -458,6 +478,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JJR2ZF8DZN;
 				INFOPLIST_FILE = WKWebViewTesl/Info.plist;
@@ -465,6 +486,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhaohongya.WKWebViewTesl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WKWebViewTesl/WKWebViewTesl-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

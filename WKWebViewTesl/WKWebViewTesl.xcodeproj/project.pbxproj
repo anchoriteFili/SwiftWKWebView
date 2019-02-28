@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D6190BB92134ED0B00A196D8 /* WebViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6190BB82134ED0B00A196D8 /* WebViewProxy.m */; };
+		D62D7AA82140C100002262E2 /* vconsole.min.js in Resources */ = {isa = PBXBuildFile; fileRef = D62D7AA72140C100002262E2 /* vconsole.min.js */; };
 		D6E5872E1FE7539B0060DC91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E5872D1FE7539B0060DC91 /* AppDelegate.swift */; };
 		D6E587301FE7539B0060DC91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E5872F1FE7539B0060DC91 /* ViewController.swift */; };
 		D6E587331FE7539B0060DC91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6E587311FE7539B0060DC91 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		D6190BB22134ECED00A196D8 /* WKWebViewTesl-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebViewTesl-Bridging-Header.h"; sourceTree = "<group>"; };
 		D6190BB72134ED0B00A196D8 /* WebViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewProxy.h; sourceTree = "<group>"; };
 		D6190BB82134ED0B00A196D8 /* WebViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewProxy.m; sourceTree = "<group>"; };
+		D62D7AA72140C100002262E2 /* vconsole.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = vconsole.min.js; sourceTree = "<group>"; };
 		D6E5872A1FE7539B0060DC91 /* WKWebViewTesl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKWebViewTesl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6E5872D1FE7539B0060DC91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6E5872F1FE7539B0060DC91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				D6E5875E1FE8DF9E0060DC91 /* README.md */,
 				D6E5872D1FE7539B0060DC91 /* AppDelegate.swift */,
 				D6E5872F1FE7539B0060DC91 /* ViewController.swift */,
+				D62D7AA72140C100002262E2 /* vconsole.min.js */,
 				D6E587311FE7539B0060DC91 /* Main.storyboard */,
 				D6E587341FE7539B0060DC91 /* Assets.xcassets */,
 				D6E587361FE7539B0060DC91 /* LaunchScreen.storyboard */,
@@ -266,6 +269,7 @@
 				D6E587381FE7539B0060DC91 /* LaunchScreen.storyboard in Resources */,
 				D6E587351FE7539B0060DC91 /* Assets.xcassets in Resources */,
 				D6E5875F1FE8DF9E0060DC91 /* README.md in Resources */,
+				D62D7AA82140C100002262E2 /* vconsole.min.js in Resources */,
 				D6E587331FE7539B0060DC91 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

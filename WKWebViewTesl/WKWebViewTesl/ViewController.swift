@@ -18,15 +18,6 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate,WKScr
     var webViewOne: WKWebView!
     var contentController: WKUserContentController = WKUserContentController()
     
-    override func loadView() {
-        
-        
-        
-        
-        
-        
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +26,7 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate,WKScr
         
         configeWeb()
         
-        let myURL = URL(string: "http://lhhq.lanxin99.net/mall-personal-center")
+        let myURL = URL(string: "http://tower.gonghuizhudi.com/vuetest/test.html")
         var myRequest = URLRequest(url: myURL!)
         
         
@@ -62,13 +53,23 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate,WKScr
     
     
     func configeWeb() {
+        
+        let userContentController = WKUserContentController()
+        
         /* 动态加载并运行JS代码 */
         // JS代码片段 这里没什么用，最好只在页面加载后调用
-        let jsStr = "document.cookie ='user_token={%22access_token%22:%22dc3411cf-af58-4222-af2d-8c430a4d8b8e%22%2C%22refresh_token%22:%22d798cb1a-2c80-4c26-bef2-77332728b912%22%2C%22openid%22:null%2C%22access_expires_in%22:1529396459959%2C%22refresh_expires_in%22:1531383659959}';"
-        // 根据JS字符串初始化WKUserScript对象
-        let userScript = WKUserScript(source: jsStr, injectionTime: .atDocumentStart, forMainFrameOnly: true)
-        let userContentController = WKUserContentController()
-        userContentController.addUserScript(userScript)
+//        let jsStr = "document.cookie ='user_token={%22access_token%22:%22dc3411cf-af58-4222-af2d-8c430a4d8b8e%22%2C%22refresh_token%22:%22d798cb1a-2c80-4c26-bef2-77332728b912%22%2C%22openid%22:null%2C%22access_expires_in%22:1529396459959%2C%22refresh_expires_in%22:1531383659959}';"
+//        // 根据JS字符串初始化WKUserScript对象
+//        let userScript = WKUserScript(source: jsStr, injectionTime: .atDocumentStart, forMainFrameOnly: true)
+//        userContentController.addUserScript(userScript)
+        
+
+        
+        if let path = Bundle.main.path(forResource: "vconsole.min", ofType: "js") {
+            let source = NSString(data: NSData(contentsOfFile: path)! as Data, encoding: UInt(String.Encoding.utf8.hashValue));
+            let userScript = WKUserScript(source: source! as String, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
+            userContentController.addUserScript(userScript)
+        }
         
         // 根据生成的WKUserScript对象，初始化WKWebViewConfiguration
         let webConfiguration = WKWebViewConfiguration()
